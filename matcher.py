@@ -1,23 +1,22 @@
 #name, grade, sex, (0 (BAD) - 5 (GOOD)) motivation, behavior, participation, positives, negatives, idNum
-
+#import student.py
 
 classList = []
-groupList = []
-num = 0
+noGroup = []
 
+num = 0
 groupSize = 2
 numGroups = 0
-
-def classMaker(classSize):
-	classList = [dict() for x in range(0,classSize)]
 
 
 def studentMaker(name, grade, sex, motivation, behavior, participation, positives, negatives):
 	idNum = num
 	classList.append({'name': name, 'idNum': idNum, 'grade': grade, 'sex': sex, 'motivation': motivation, 'behavior': behavior, 'participation': participation, 'positives': positives, 'negatives': negatives, 'hasGroup': False})
+	
 	num++
+	
 
-def groupMaker():
+def groupMaker(classSize):
 	if(classSize % groupSize == 0):
 		numGroups = classSize/groupSize
 	else
@@ -35,7 +34,7 @@ def isGoodMatch(id1, id2):
 		for x in classList[id1]['negatives']:
 			if (x == id2):
 				good = False
-		if classList[id1]['behavior'] < 3 and classList[id2]['behavior'] < 2:
+		if classList[id1]['behavior'] < 3 and classList[id2]['behavior'] < 3:
 			good = False
 		if classList[id1]['motivation'] < 3 and classList[id2]['motivation'] < 3:
 			good = False
@@ -45,5 +44,26 @@ def isGoodMatch(id1, id2):
 
 def match():
 	for x in classList:
-		for x in classList:
+		for y in classList:
+			count = 0
+			if isGoodMatch(x, y) && x[hasGroup] == False && y[hasGroup] == False:
+				if groupList[count].length < groupSize:                #doesn't account for indivisible people
+					group = []
+					group.append(classList[x])
+					group.append(classList[y])
+					groupList.append(group)
+					x[hasGroup] = True
+					y[hasGroup] = True
+					count ++
+
+	for x in classList:
+		if x[hasGroup] == False
+		group
+			groupList[count].append(classList[x])		
+		
+
+
+
+
+
 
