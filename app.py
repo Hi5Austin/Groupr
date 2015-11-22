@@ -19,8 +19,9 @@ def make_form(num_students):
     if request.method == "GET":
         return render_template('entry.html',num = num_students,props=PROPS)
     if request.method == "POST":
-        print request.form
-        return request.data
+        data = request.form
+        print data
+        return render_template('success.html')
 
 
 
