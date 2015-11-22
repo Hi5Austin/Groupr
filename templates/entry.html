@@ -1,9 +1,18 @@
 <!doctype html>
-<title> Hello from Austin </title>
+<head>
+<title> Hello from Groupr</title>
+</head>
+<body>
+
 <p> Put stuff </p>
 {%for i in range(1,num) %}
   {% for prop in props%}
-    <input class="{{prop}}">
+    <input id="{{prop}}{{i}}">
   {% endfor %}
   <br>
 {% endfor %}
+<input type="submit" id="submit"></input>
+<script src='{{url_for('static',filename='js/makeclass.js')}}'></script>
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+</body>
