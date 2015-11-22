@@ -2,6 +2,8 @@
 <title> Hello from Austin </title>
 <p> Put stuff </p>
 {%for i in range(1,num) %}
-  <input>
+  {% for prop in props%}
+    <input class="{{prop}}">
+  {% endfor %}
   <br>
 {% endfor %}
