@@ -10,14 +10,17 @@ $(document).ready(function(){
     classList = [];
     var numStudents = Number(url.substring(32));
     for(var i = 0; i < numStudents; i++){
-      //var propClass = "." + PROPS[i];
       var studentClass = ".student" + i;
       inputs = $(studentClass);
       student = {};
-      for(var i = 0; i < PROPS.lenght; i ++){
+      student['id'] = i;
+      for(var i = 0; i < PROPS.length; i ++){
         student[PROPS[i]] = inputs[i].value;
-        classList.push(student);
       }
+      for(var i = 0; i < PROPS.length; i ++){
+        console.log(student[PROPS[i]]);
+      }
+      //classList.push(student);
     }
     console.log(classList);
   })
