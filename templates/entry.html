@@ -5,13 +5,15 @@
 <body>
 
 <p> Put stuff </p>
+<form method="POST">
 {%for i in range(0,num) %}
   {% for prop in props%}
-    <input class="student{{i}}">
+    <input name="{{prop}}{{i}}" class="student{{i}}">
   {% endfor %}
   <br>
 {% endfor %}
 <input type="submit" id="submit"></input>
+</form>
 <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 <script src='{{url_for('static',filename='js/makeclass.js')}}'></script>
 </body>

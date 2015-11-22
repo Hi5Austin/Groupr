@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, url_for
+from flask import render_template, url_for, request
 import requests
 import json
 
@@ -14,9 +14,13 @@ app.config["DEBUG"] = True
 
 PROPS = ['name','grade','sex','motivation','behavior','participation','postivies','negatives']
 
-@app.route("/makeclass/<int:num_students>")
+@app.route("/makeclass/<int:num_students>", methods=['GET', 'POST'])
 def make_form(num_students):
-    return render_template('entry.html',num = num_students,props=PROPS)
+    if request.method == "GET":
+        return render_template('entry.html',num = num_students,props=PROPS)
+    if request.method == "POST":
+        print request.form
+        return request.data
 
 
 
