@@ -1,14 +1,16 @@
-import matcher.py
+import matcher
 
 classSize = 4
 
-n1 = 'Djassi'
-g1 = 12
-s1 = 'male'
-m1 = 5
-b1 = 4
-p1 = 4
-yes1 = [2,3]
-no1 = [4]
 
-studentMaker(n1, g1, s1, m1, b1, p1, yes1, no1)
+matcher.studentMaker('A', 90, 'male', 5, 4, 4, [2], [4])
+matcher.studentMaker('B', 90, 'female', 5, 4, 4, [1], [])
+matcher.studentMaker('C', 65, 'male', 3, 2, 1, [4], [])
+matcher.studentMaker('D', 65, 'female', 3, 2, 1, [3], [1])
+
+#A and C
+#B and D
+matcher.groupMaker(classSize)
+
+matcher.match()
+matcher.printMatch()
